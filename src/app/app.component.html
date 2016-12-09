@@ -4,17 +4,15 @@
 
 <div class="main"> 
   <div class="">
-    <input type="text" name="base">
-    <select name="basecurrencies" id="">
-      <option value="EUR">EUR</option>
-      <option value="USD">USD</option>
+    <input type="text" name="base" [(ngModel)]="baseValue">
+    <select name="basecurrencies" id="" (change)="_fetchRates($event.target.value)">
+      <option *ngFor="let currency of bases">{{ currency }}</option>
     </select>
   </div>
   <div>
-    <input type="text" name="converter">
-    <select name="basecurrencies" id="">
-      <option value="EUR">EUR</option>
-      <option value="USD">USD</option>
+    <input type="text" name="converter" [(ngModel)]="exchangeValue" (keyup)="editCurrency()">
+    <select name="basecurrencies" id="" (change)="currencyChange($event.target.value)">
+      <option *ngFor="let currency of currencyKeys">{{ currency }}</option>
     </select>
   </div>
 </div>
