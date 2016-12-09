@@ -38,18 +38,19 @@ export class AppComponent implements OnInit {
       return;
     }
 
-    console.log(this.exchangeValue);
     this.baseValue = this.exchangeValue * this.baseRate / this.exchangeRate;
   }
-  
-  public editBase(base) {
 
+  public editBase() {
+     if (Number(this.baseValue).toString() === 'NaN') {
+      return;
+    }
+    this.exchangeValue  = this.baseValue * this.exchangeRate;
   }
 
   private _fetchRates(base?: string) {
     this.fixerService.getRates(base)
     .subscribe(data => {
-      console.log(data);
       // build the bases array
       this.bases = Object.keys(data.rates);
       this.bases.unshift(data.base);
