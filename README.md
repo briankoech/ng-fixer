@@ -29,3 +29,12 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Project Breakdown
+ 
+ - Build the base service -- 30 mins.
+ - Build the base view - 30 mins.
+ - Fix the logic && Performance optimization - 40mins
+ - Write component test - 30 mins
+
+ - Total Expected Time = 2hrs 10Mins.
