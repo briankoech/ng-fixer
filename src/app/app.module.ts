@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// services
+import { FixerService } from './app.service';
+// components
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +17,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ FixerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
