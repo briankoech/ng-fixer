@@ -24,10 +24,5 @@ export class FixerService {
 
     return this.http.get(url, options)
     .map(res => res.json());
-    // .subscribe(data => {
-    //   this.currencyList = Object.keys(data.rates);
-    //   this.currencyList.unshift(data.base);
-    //   console.log(this.currencyList);
-    // });
   }
 }

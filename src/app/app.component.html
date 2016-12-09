@@ -5,7 +5,7 @@
 <div class="main"> 
   <div class="">
     <input type="text" name="base" [(ngModel)]="baseValue" (keyup)="editBase()">
-    <select name="basecurrencies" id="" (change)="_fetchRates($event.target.value)">
+    <select name="basecurrencies" id="" (change)="changeBase($event.target.value)">
       <option *ngFor="let currency of bases">{{ currency }}</option>
     </select>
   </div>

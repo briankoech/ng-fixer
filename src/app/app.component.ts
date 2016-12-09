@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
   public exchangeRate: any;
   public baseRate: any = 1;
 
+  // set currently selected currency
+  public currenctCurrency: string;
   constructor(private fixerService: FixerService) {
 
   }
@@ -31,6 +33,9 @@ export class AppComponent implements OnInit {
 
     // change exchange value
     this.exchangeRate = this.currencies[event];
+
+    // set as the current currency
+    this.currenctCurrency = event;
   }
 
   public editCurrency() {
@@ -46,6 +51,10 @@ export class AppComponent implements OnInit {
       return;
     }
     this.exchangeValue  = this.baseValue * this.exchangeRate;
+  }
+
+  public changeBase(base) {
+    this._fetchRates(base);
   }
 
   private _fetchRates(base?: string) {
