@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     console.log(this.exchangeValue);
     this.baseValue = this.exchangeValue * this.baseRate / this.exchangeRate;
   }
-  
+
   public editBase() {
      if (Number(this.baseValue).toString() === 'NaN') {
       return;
@@ -65,6 +65,9 @@ export class AppComponent implements OnInit {
   private _fetchRates(base?: string) {
     this.fixerService.getRates(base)
     .subscribe(data => {
+      // cache this data to local storage
+      localStorage.setItem(data.base, data);
+
       // build the bases array
       this.bases = Object.keys(data.rates);
       this.bases.unshift(data.base);
