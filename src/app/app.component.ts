@@ -12,10 +12,12 @@ export class AppComponent implements OnInit {
   public currencies: any;
 
   public baseValue = 1;
-  public exchangeValue;
+  public get exchangeValue () {
+    return this.baseValue * this.exchangeRate;
+  };
 
   // constant Currency Rates
-  public exchangeRate: any;
+  public exchangeRate: any = 1;
   public baseRate: any = 1;
 
   // set currently selected currency
@@ -29,8 +31,6 @@ export class AppComponent implements OnInit {
   }
 
   public currencyChange(event) {
-    this.exchangeValue = this.currencies[event] * this.baseValue;
-
     // change exchange value
     this.exchangeRate = this.currencies[event];
 
@@ -42,19 +42,24 @@ export class AppComponent implements OnInit {
     if (Number(this.exchangeValue).toString() === 'NaN') {
       return;
     }
-
+    console.log(this.exchangeValue);
     this.baseValue = this.exchangeValue * this.baseRate / this.exchangeRate;
   }
-
+  
   public editBase() {
      if (Number(this.baseValue).toString() === 'NaN') {
       return;
     }
-    this.exchangeValue  = this.baseValue * this.exchangeRate;
   }
 
   public changeBase(base) {
     this._fetchRates(base);
+    // get the current currency
+    console.log(this.currenctCurrency, this.currencies);
+
+    setTimeout(() =>  {
+       this.exchangeRate = this.currencies[this.currenctCurrency];
+    }, 2000);
   }
 
   private _fetchRates(base?: string) {
@@ -68,12 +73,8 @@ export class AppComponent implements OnInit {
       this.currencyKeys = Object.keys(data.rates);
       this.currencies = data.rates;
 
-      // set Exchangevalue as the first value of rates
-      this.exchangeValue = data.rates[this.currencyKeys[0]];
-
       // set the exchange rate
       this.exchangeRate = data.rates[this.currencyKeys[0]];
     });
   }
-
 }

@@ -3,13 +3,13 @@
 </h1>
 
 <div class="main"> 
-  <div class="">
+  <div class="row">
     <input type="text" name="base" [(ngModel)]="baseValue" (keyup)="editBase()">
     <select name="basecurrencies" id="" (change)="changeBase($event.target.value)">
       <option *ngFor="let currency of bases">{{ currency }}</option>
     </select>
   </div>
-  <div>
+  <div class="row">
     <input type="text" name="converter" [(ngModel)]="exchangeValue" (keyup)="editCurrency()">
     <select name="basecurrencies" id="" (change)="currencyChange($event.target.value)">
       <option *ngFor="let currency of currencyKeys">{{ currency }}</option>

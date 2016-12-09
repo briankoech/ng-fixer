@@ -2,4 +2,19 @@
   border: 2px solid grey;
   padding: 1em;
   width: 30%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  margin-bottom: 1em;
+}
+
+input {
+  font-size: 1em;
+}
+
+select {
+  font-size: 1em;
 }
