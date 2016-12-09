@@ -9,6 +9,7 @@ const url = 'http://api.fixer.io/latest';
 export class FixerService {
 
   public currencyList: any;
+  public latestRates: any;
 
   constructor(private http: Http) {}
 
